@@ -1,7 +1,7 @@
 Laravel Shopping Cart Package
 =============================
 
-[![Build Status](https://travis-ci.org/laravel/framework.png)](https://travis-ci.org/laravel/framework)
+[![Build Status](https://travis-ci.org/elliotfehr/laravel-cart.svg?branch=master)](https://travis-ci.org/elliotfehr/laravel-cart)
 
 This is a quick package to allow the creation of shopping 
 carts for users that may or may not be logged into your 
