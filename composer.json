@@ -1,0 +1,23 @@
+{
+    "name": "fehr/cart",
+    "description": "A Shopping Cart Class For Laravel",
+    "authors": [
+        {
+            "name": "Elliot Fehr",
+            "email": "elliotfehr@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "4.2.*"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations"
+        ],
+        "psr-0": {
+            "Vendor\\Package\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
