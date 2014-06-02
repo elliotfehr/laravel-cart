@@ -1,7 +1,7 @@
 <?php namespace Fehr\Cart\User;
 
 use Illuminate\Support\Facades\Auth;
-use Cartalyst\Sentry\Facades\Laravel\Sentry, 
+use Cartalyst\Sentry\Facades\Laravel\Sentry;
 
 class CurrentUser {
 

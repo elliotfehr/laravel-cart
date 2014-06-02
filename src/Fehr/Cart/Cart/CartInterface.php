@@ -1,7 +1,9 @@
 <?php namespace Fehr\Cart\Cart;
 
-use Fehr\CartConfig;
+use Fehr\Cart\CartConfig;
 use Fehr\Cart\User\CurrentUser;
+use Fehr\Cart\Models\Cart;
+use Fehr\Cart\Models\CartItem;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Session; 
 use Illuminate\Support\Facades\Cookie; 
@@ -10,7 +12,7 @@ use Illuminate\Support\Facades\Response;
 
 
 
-class CartInterface extends CartCookie{
+class CartInterface {
 
 	public $cookie;
 	public $user;
