@@ -1,9 +1,10 @@
 <?php namespace Fehr\Cart\Cart;
 
 use Fehr\Cart\CartConfig;
-use Fehr\Cart\User\CurrentUser;
-use Fehr\Cart\Models\Cart;
+use Fehr\Cart\Models\Cart as CartModel;
 use Fehr\Cart\Models\CartItem;
+use Fehr\Cart\User\CurrentUser;
+use Fehr\Cart\Cookie\CartCookie;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Session; 
 use Illuminate\Support\Facades\Cookie; 
@@ -33,19 +34,19 @@ class CartInterface {
 			if ($this->config->cache == true) {
 
 				//User has a cookie already so let's check to see if they have a cart
-				$cart = Cart::where('session_id', '=', $this->cookie->getExistingCookie())
+				$cart = CartModel::where('session_id', '=', $this->cookie->getExistingCookie())
 									->orWhere('user_id', '=', $this->user->getCurrentUserId())->remember($this->config->cacheDuration)->first();
 
 			} else {
 
-				$cart = Cart::where('session_id', '=', $this->cookie->getExistingCookie())
+				$cart = CartModel::where('session_id', '=', $this->cookie->getExistingCookie())
 									->orWhere('user_id', '=', $this->user->getCurrentUserId())->first();
 
 			}
 
 			if (is_null($cart)) {
 
-				$cart = new Cart;
+				$cart = new CartModel;
 				$cart->session_id = $this->cookie->getExistingCookie();
 				$cart->save();
 				return $cart;
@@ -63,19 +64,19 @@ class CartInterface {
 			if ($this->config->cache == true) {
 
 				//User has a cookie already so let's check to see if they have a cart
-				$cart = Cart::where('session_id', '=', $this->cookie->getExistingCookie())
+				$cart = CartModel::where('session_id', '=', $this->cookie->getExistingCookie())
 									->orWhere('user_id', '=', $this->user->getCurrentUserId())->remember($this->config->cacheDuration)->first();
 
 			} else {
 
-				$cart = Cart::where('session_id', '=', $this->cookie->getExistingCookie())
+				$cart = CartModel::where('session_id', '=', $this->cookie->getExistingCookie())
 									->orWhere('user_id', '=', $this->user->getCurrentUserId())->first();
 
 			}
 			if (is_null($cart)) {
 
 				$cookie = $this->cookie->createNewCookie();
-				$cart = new Cart;
+				$cart = new CartModel;
 				$cart->session_id = $cookie;
 				$cart->save();
 				return $cart;
@@ -92,7 +93,7 @@ class CartInterface {
 	private function destroyCart()
 	{
 
-		$cart = Cart::where('session_id', '=', $this->cookie->getExistingCookie())
+		$cart = CartModel::where('session_id', '=', $this->cookie->getExistingCookie())
 							->orWhere('user_id', '=', $this->user->getCurrentUserId())->delete();
 
 		return $cart;
@@ -117,12 +118,12 @@ class CartInterface {
 
 		if ($this->config->cache == true) {
 
-			$cartId = Cart::where('session_id', '=', $this->cookie->getExistingCookie())
+			$cartId = CartModel::where('session_id', '=', $this->cookie->getExistingCookie())
 								->orWhere('user_id', '=', $this->user->getCurrentUserId())->remember($this->config->cacheDuration)->first();
 
 		} else {
 
-			$cartId = Cart::where('session_id', '=', $this->cookie->getExistingCookie())
+			$cartId = CartModel::where('session_id', '=', $this->cookie->getExistingCookie())
 								->orWhere('user_id', '=', $this->user->getCurrentUserId())->first();
 
 		}
@@ -140,12 +141,12 @@ class CartInterface {
 
 		if ($this->config->cache == true) {
 
-			$cart = Cart::where('session_id', '=', $this->cookie->getExistingCookie())
+			$cart = CartModel::where('session_id', '=', $this->cookie->getExistingCookie())
 								->orWhere('user_id', '=', $this->user->getCurrentUserId())->remember($this->config->cacheDuration)->first();
 
 		} else {
 
-			$cart = Cart::where('session_id', '=', $this->cookie->getExistingCookie())
+			$cart = CartModel::where('session_id', '=', $this->cookie->getExistingCookie())
 								->orWhere('user_id', '=', $this->user->getCurrentUserId())->first();
 
 		}
@@ -161,12 +162,12 @@ class CartInterface {
 
 		if ($this->config->cache == true) {
 
-			$cart = Cart::where('session_id', '=', $this->cookie->getExistingCookie())
+			$cart = CartModel::where('session_id', '=', $this->cookie->getExistingCookie())
 								->orWhere('user_id', '=', $this->user->getCurrentUserId())->remember($this->config->cacheDuration)->first();
 
 		} else {
 
-			$cart = Cart::where('session_id', '=', $this->cookie->getExistingCookie())
+			$cart = CartModel::where('session_id', '=', $this->cookie->getExistingCookie())
 								->orWhere('user_id', '=', $this->user->getCurrentUserId())->first();
 
 		}

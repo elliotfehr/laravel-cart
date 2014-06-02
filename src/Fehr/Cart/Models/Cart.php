@@ -1,6 +1,6 @@
-<?php namespace Fehr\Cart\Models
+<?php namespace Fehr\Cart\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model as Eloquent;
 
 class Cart extends Eloquent {
 

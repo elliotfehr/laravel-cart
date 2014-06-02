@@ -1,6 +1,7 @@
 {
     "name": "fehr/cart",
     "description": "A Shopping Cart Class For Laravel",
+    "license": "AGPLv3",
     "authors": [
         {
             "name": "Elliot Fehr",
@@ -8,7 +9,7 @@
         }
     ],
     "require": {
-        "php": ">=5.3.0",
+        "php": ">=5.4.0",
         "illuminate/support": "4.2.*"
     },
     "autoload": {
