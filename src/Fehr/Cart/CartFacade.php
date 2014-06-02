@@ -1,4 +1,4 @@
-<?php Fehr\Cart;
+<?php namespace Fehr\Cart;
 
 use Illuminate\Support\Facades\Facade;
 

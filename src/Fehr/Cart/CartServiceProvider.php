@@ -30,7 +30,7 @@ class CartServiceProvider extends ServiceProvider {
 	{
 		$this->app->bind('cart', function()
         {
-            return new Fehr\Cart\Cart;
+            return new Cart;
         });
 	}
 
