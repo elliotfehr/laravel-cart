@@ -7,7 +7,7 @@ class CurrentUser {
 
 	public function getCurrentUserId()
 	{
-		if (Sentry::check()) {
+		if (class_exists('Sentry')) {
 
 			$user = Sentry::getUserId();
 			return $user;

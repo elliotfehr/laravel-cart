@@ -15,9 +15,9 @@ class CartItemPivotTable extends Migration {
 		Schema::create('cart_item_pivot', function($table)
         {
         	$table->increments('id');
-        	$table->string('cart_id');
-        	$table->string('item_id');
-        	$table->tinyInteger('did_purchase');
+        	$table->integer('cart_id');
+        	$table->integer('item_id');
+        	$table->integer('quantity');
         	$table->softDeletes();
         	$table->timestamps();
         });
@@ -30,7 +30,7 @@ class CartItemPivotTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::down('cart_item_pivot');
+		Schema::drop('cart_item_pivot');
 	}
 
 }

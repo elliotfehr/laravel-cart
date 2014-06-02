@@ -12,10 +12,10 @@ class CartConfig {
 	public function __construct()
     {
 
-        $this->cookieName = Config::get('cart::cart.session.cookie');
-        $this->cookieDuration = Config::get('cart::cart.session.duration');
-        $this->cache = Config::get('cart::cart.cache.enabled');
-        $this->cacheDuration = Config::get('cart::cart.cache.duration');
+        $this->cookieName = Config::get('cart::config.cookie', 'cart_cookie');
+        $this->cookieDuration = Config::get('cart::config.cookie_duration', '43200');
+        $this->cache = Config::get('cart::config.cache', false);
+        $this->cacheDuration = Config::get('cart::config.cache_duration', 60);
 
     }
 
